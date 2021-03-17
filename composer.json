@@ -1,0 +1,31 @@
+{
+  "name": "inetstudio/beauty-services",
+  "description": "Package for beauty services",
+  "homepage": "https://github.com/inetstudio/beauty-services",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Konstantin Bukin",
+      "email": "bukin@inetstudio.ru"
+    }
+  ],
+  "require": {
+    "inetstudio/admin-panel": "^8.0",
+    "inetstudio/classifiers": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "InetStudio\\BeautyServicesPackage\\": "package/src",
+      "InetStudio\\BeautyServicesPackage\\Services\\": "entities/services/src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "InetStudio\\BeautyServicesPackage\\Providers\\ServiceProvider",
+        "InetStudio\\BeautyServicesPackage\\Services\\Providers\\BindingsServiceProvider",
+        "InetStudio\\BeautyServicesPackage\\Services\\Providers\\ServiceProvider"
+      ]
+    }
+  }
+}
