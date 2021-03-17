@@ -22,7 +22,7 @@ Route::group(
                 'except' => [
                     'create',
                 ],
-                'as' => 'back',
+                'as' => 'back.beauty-services-package',
             ]
         );
     }

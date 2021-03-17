@@ -21,7 +21,7 @@ window.tinymce.PluginManager.add('beauty_service', function(editor) {
 
   editor.addButton('add_service_widget', {
     title: 'Сервис',
-    icon: 'fa fa-percent',
+    icon: 'fa fa-info',
     onclick: function() {
       editor.focus();
 

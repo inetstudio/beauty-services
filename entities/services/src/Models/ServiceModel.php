@@ -144,7 +144,7 @@ class ServiceModel extends Model implements ServiceModelContract
         )->pluck('alias')->toArray();
 
         $serviceType = (empty($serviceType))
-            ? ($this->attributes['beauty_services_type'] ?: self::BASE_PROMO_TYPE)
+            ? ($this->attributes['service_type'] ?: self::BASE_PROMO_TYPE)
             : str_replace('beauty_services_type_', '', $serviceType[0]);
 
         return $serviceType;
