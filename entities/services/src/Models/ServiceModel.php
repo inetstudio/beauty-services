@@ -7,7 +7,7 @@ use OwenIt\Auditing\Auditable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use InetStudio\Uploads\Models\Traits\HasImages;
+use InetStudio\UploadsPackage\Uploads\Models\Traits\HasMedia;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use InetStudio\Classifiers\Models\Traits\HasClassifiers;
@@ -17,7 +17,7 @@ use InetStudio\AdminPanel\Base\Models\Traits\Scopes\BuildQueryScopeTrait;
 class ServiceModel extends Model implements ServiceModelContract
 {
     use Auditable;
-    use HasImages;
+    use HasMedia;
     use SoftDeletes;
     use HasClassifiers;
     use BuildQueryScopeTrait;
@@ -27,11 +27,6 @@ class ServiceModel extends Model implements ServiceModelContract
     const BASE_PROMO_TYPE = 'consultation';
 
     protected $auditTimestamps = true;
-
-    protected $images = [
-        'config' => 'beauty_services',
-        'model' => 'service',
-    ];
 
     protected $table = 'beauty_services';
 
@@ -166,5 +161,10 @@ class ServiceModel extends Model implements ServiceModelContract
         }
 
         return $query;
+    }
+
+    public function getMediaConfig(): array
+    {
+        return config('beauty_services.media', []);
     }
 }
