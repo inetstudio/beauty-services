@@ -1,4 +1,7 @@
-window.Admin.vue.stores['beauty-services-package_services'] = new Vuex.Store({
+import hash from 'object-hash';
+import { v4 as uuidv4 } from 'uuid';
+
+window.Admin.vue.stores['beauty-services-package_services'] = new window.Vuex.Store({
   state: {
     emptyService: {
       model: {
@@ -21,10 +24,10 @@ window.Admin.vue.stores['beauty-services-package_services'] = new Vuex.Store({
   mutations: {
     setService(state, service) {
       let emptyService = JSON.parse(JSON.stringify(state.emptyService));
-      emptyService.model.id = UUID.generate();
+      emptyService.model.id = uuidv4();
 
       let resultService = _.merge(emptyService, service);
-      resultService.hash = window.hash(resultService.model);
+      resultService.hash = hash(resultService.model);
 
       state.service = resultService;
     },

@@ -4,9 +4,9 @@ require('../../../../../../widgets/entities/widgets/resources/assets/js/mixins/w
 
 require('./stores/beauty_services');
 
-Vue.component(
+window.Vue.component(
     'BeautyServiceWidget',
-    require('./components/partials/BeautyServiceWidget/BeautyServiceWidget.vue').default,
+    () => import('./components/partials/BeautyServiceWidget/BeautyServiceWidget.vue'),
 );
 
 let service = require('./package/beauty_services');
