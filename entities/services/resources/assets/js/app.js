@@ -1,3 +1,5 @@
+import {beauty_services} from './package/beauty_services';
+
 require('./plugins/tinymce/plugins/beauty_service');
 
 require('../../../../../../widgets/entities/widgets/resources/assets/js/mixins/widget');
@@ -9,5 +11,4 @@ window.Vue.component(
     () => import('./components/partials/BeautyServiceWidget/BeautyServiceWidget.vue'),
 );
 
-let service = require('./package/beauty_services');
-service.init();
+beauty_services.init();
